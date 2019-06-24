@@ -1,0 +1,10 @@
+source 'https://github.com/Tovema-iOS/Specs.git'
+
+platform :ios, 8.0
+#use_frameworks!
+
+target 'BZUtility_Example' do
+    pod "TMUtility", :path => "../", :subspecs => ['Core', 'ThreadSafeArray', 'NSObject+Plist']
+
+    pod 'YYModel', :inhibit_warnings => true
+end
