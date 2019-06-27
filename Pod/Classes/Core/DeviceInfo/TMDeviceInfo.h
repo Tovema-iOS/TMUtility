@@ -6,7 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <GBDeviceInfo/GBDeviceInfo.h>
 
 typedef NS_ENUM (NSInteger, TMLanguageType) {
