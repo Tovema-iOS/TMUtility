@@ -64,6 +64,9 @@ typedef NS_ENUM (NSInteger, TMLanguageType) {
 + (BOOL)currentLanguageIsChineseSimplified;
 + (TMLanguageType)languageType;
 
+//Sim 卡国家，大写
++ (NSString *)simCountry;
+
 //设备是否越狱
 + (BOOL)isJailbroken;
 

@@ -11,6 +11,8 @@
 #import <sys/mount.h>
 #import <sys/sysctl.h>
 #import <mach/mach_host.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+#import <CoreTelephony/CTCarrier.h>
 
 #define PATH_SIMULATER_DEVICE_INFO  @"/tmp/DeviceInfo.plist"
 
@@ -241,6 +243,21 @@
         kLanguageType = TMLanguageTypeUnknown;
     }
     return kLanguageType;
+}
+
+//Sim 卡国家，大写
++ (NSString *)simCountry
+{
+    static NSString *simCountry = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        CTTelephonyNetworkInfo *telInfo = [[CTTelephonyNetworkInfo alloc] init];
+        CTCarrier *carrier = [telInfo subscriberCellularProvider];
+        simCountry = carrier.isoCountryCode.uppercaseString;
+    });
+    
+    return simCountry;
 }
 
 //设备是否越狱
